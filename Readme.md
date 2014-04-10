@@ -1,6 +1,6 @@
 ## Compile & run
 
-$ gfortran-4.2 -o gol gol.f90; ./gol
+$ gfortran -o gol gol.f90; ./gol
 
 ## Info
 
