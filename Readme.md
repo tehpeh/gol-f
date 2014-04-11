@@ -10,24 +10,36 @@ main program loop:
 
     end
 
+declare all variable types at top of program/subroutine/function before using them:
+
+    integer :: i
+    real :: x
+    character(len=40) :: string
+    integer :: array(8)
+    integer :: function_name        ! declare your function return values too
+
+delcare your INTENT with subroutine/function inputs (in/out/inout):
+
+    real, intent(in) :: y
+
 functions return results:
 
     function function_name(attr1, attr2) result(return_val)
-      integer attr1, attr2, return_val
-      return
+      integer, intent(in) :: attr1, attr2
+      integer :: return_val
+      return_val = attr1 + attr2
     end
 
-subroutines can modify input values:
+    integer :: function_name, out
+    out = function(1, 2)
+
+(tip: can modify input values if intent is out/inout)
+
+subroutines can only modify input values:
 
     subroutine do_it(a)
-      integer a
-      a = 5
+      integer, intent(inout) :: a
+      a = a * 5
     end
 
-declare all variable types before using them, even functions:
-
-    integer i
-    real x
-    character*40 string
-    integer array(80)
-    integer function_name
+    call do_it(1)
