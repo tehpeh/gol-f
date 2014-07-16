@@ -10,12 +10,14 @@ main program loop:
 
     end
 
-declare all variable types at top of program/subroutine/function before using them:
+declare all variable types at the TOP of the program/subroutine/function before
+using them:
 
     integer :: i
     real :: x
     character(len=40) :: string
     integer :: array(8)
+    integer :: array_2d(5, 5)
     integer :: function_name        ! declare your function return values too
 
 delcare your INTENT with subroutine/function inputs (in/out/inout):
